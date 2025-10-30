@@ -19,3 +19,17 @@ services:
     environment:
       - APP_ENV=local
       - APP_DEBUG=1
+
+  db:
+    container_name: laravel-db
+    image: mysql:9.5.0
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: wowi
+      MYSQL_ROOT_PASSWORD: dev
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
