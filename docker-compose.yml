@@ -7,6 +7,8 @@ services:
     ports:
       - "8080:80"
     user: "1000:1000"
+    volumes:
+      - ./:/app
     links:
       - php
 
@@ -16,6 +18,8 @@ services:
       context: .
       dockerfile: docker/dev/php/Dockerfile
     user: "1000:1000"
+    volumes:
+      - ./:/app
     environment:
       - APP_ENV=local
       - APP_DEBUG=1
